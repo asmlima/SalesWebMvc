@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace SalesWebMvc.Models
@@ -15,7 +13,7 @@ namespace SalesWebMvc.Models
         public double BaseSalary { get; set; }
         public Department Department { get; set; }
         public int DepartmentId { get; set; }
-        public ICollection<SalesRecord> SalesRecords { get; set; } = new List<SalesRecord>();
+        public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
         public Seller()
         {
@@ -33,17 +31,17 @@ namespace SalesWebMvc.Models
 
         public void AddSales(SalesRecord sr)
         {
-            SalesRecords.Add(sr);
+            Sales.Add(sr);
         }
 
         public void RemoveSales(SalesRecord sr)
         {
-            SalesRecords.Remove(sr);
+            Sales.Remove(sr);
         }
 
         public double TotalSales(DateTime initial, DateTime final)
         {
-            return SalesRecords.Where(sale => sale.Date >= initial && sale.Date <= final).Sum(sale => sale.Amount);
+            return Sales.Where(sr => sr.Date >= initial && sr.Date <= final).Sum(sr => sr.Amount);
         }
     }
 }
