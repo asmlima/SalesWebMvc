@@ -14,7 +14,7 @@ namespace SalesWebMvc.Controllers
         private readonly SellerService _sellerService;
         private readonly DepartmentService _departmentService;
 
-        public SellersController (SellerService sellerService, DepartmentService departmentService)
+        public SellersController(SellerService sellerService, DepartmentService departmentService)
         {
             _sellerService = sellerService;
             _departmentService = departmentService;
