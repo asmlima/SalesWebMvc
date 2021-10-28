@@ -49,7 +49,6 @@ namespace SalesWebMvc.Controllers
             }
 
             var obj = _sellerService.FindById(id.Value);
-
             if (obj == null)
             {
                 return NotFound();
